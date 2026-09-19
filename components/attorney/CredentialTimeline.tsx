@@ -38,37 +38,23 @@ export default function CredentialTimeline() {
           </div>
         </div>
 
-        {/* Credentials Grid (Structured Framework) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {attorney.sampleCredentials.map((item, i) => {
-            const icons = [GraduationCap, Scale, BookOpen, Users];
-            const Icon = icons[i % icons.length];
-
-            return (
-              <div
-                key={i}
-                className="bg-[#F8F5EE] border border-[#D8D4CC] p-6 sm:p-8 rounded-[2px] shadow-sm flex items-start gap-5"
-              >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[2px] bg-[#0F1F3D] text-[#B8996A] flex items-center justify-center shrink-0">
-                  <Icon size={20} aria-hidden="true" />
-                </div>
-                <div>
-                  <h3
-                    className="text-[#0F1F3D] text-lg font-semibold mb-1"
-                    style={{ fontFamily: "var(--font-cormorant-garamond)" }}
-                  >
-                    {item.label}
-                  </h3>
-                  <p
-                    className="text-[#5A5753] text-xs font-mono tracking-wide"
-                    style={{ fontFamily: "var(--font-inter)" }}
-                  >
-                    {item.sub}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+        {/* Elegant Placeholder for Missing Credentials */}
+        <div className="bg-[#F8F5EE] border border-[#D8D4CC] p-8 sm:p-12 rounded-[2px] shadow-sm flex flex-col items-center text-center max-w-[800px] mx-auto mt-8">
+          <div className="w-14 h-14 rounded-full bg-[#0F1F3D] text-[#B8996A] flex items-center justify-center mb-6">
+            <Scale size={24} aria-hidden="true" />
+          </div>
+          <h3
+            className="text-[#0F1F3D] text-2xl font-light mb-4"
+            style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+          >
+            Professional Curriculum Vitae
+          </h3>
+          <p
+            className="text-[#5A5753] text-sm leading-relaxed max-w-[500px]"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            A comprehensive record of {attorney.name}&apos;s academic background, bar admissions, jurisdictional authorities, and professional affiliations will be published in this space prior to the firm&apos;s official launch.
+          </p>
         </div>
 
       </div>

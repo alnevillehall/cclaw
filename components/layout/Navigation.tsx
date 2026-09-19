@@ -85,12 +85,12 @@ export default function Navigation() {
           {/* Desktop Consultation CTA & Phone */}
           <div className="hidden lg:flex items-center gap-6">
             <a
-              href={`tel:${firm.phone.replace(/\D/g, "")}`}
+              href={firm.phone === "Pending Setup" ? "#" : `tel:${firm.phone.replace(/\D/g, "")}`}
               className="flex items-center gap-2 text-[#B8C5D8] hover:text-[#B8996A] text-xs font-medium tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#B8996A]"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               <Phone size={14} className="text-[#B8996A]" aria-hidden="true" />
-              <span>{firm.phone}</span>
+              <span className={firm.phone === "Pending Setup" ? "italic opacity-80" : ""}>{firm.phone}</span>
             </a>
 
             <a
@@ -143,12 +143,12 @@ export default function Navigation() {
 
           <div className="space-y-4 pt-6 border-t border-white/10">
             <a
-              href={`tel:${firm.phone.replace(/\D/g, "")}`}
+              href={firm.phone === "Pending Setup" ? "#" : `tel:${firm.phone.replace(/\D/g, "")}`}
               onClick={() => setMenuOpen(false)}
               className="flex items-center gap-3 text-white text-sm font-medium py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#B8996A]"
             >
               <Phone size={16} className="text-[#B8996A]" aria-hidden="true" />
-              <span>{firm.phone}</span>
+              <span className={firm.phone === "Pending Setup" ? "italic opacity-80 text-xs font-normal" : ""}>{firm.phone}</span>
             </a>
 
             <a

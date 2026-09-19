@@ -63,7 +63,7 @@ export default function ContactSection() {
               className="text-[#7A5623] text-[11px] tracking-[0.25em] uppercase font-semibold"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Consultation Intake
+              Consultation Intake (Prototype)
             </p>
           </div>
           <h2
@@ -76,14 +76,13 @@ export default function ContactSection() {
               lineHeight: 1.15,
             }}
           >
-            Initiate a Confidential Enquiry
+            Contact Demonstration Form
           </h2>
           <p
             className="text-[#4A4A4A] text-[15px] sm:text-[16px] leading-relaxed"
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            Prospective clients may submit an initial consultation enquiry below. All preliminary
-            discussions remain strictly confidential.
+            Prospective clients may submit an initial consultation enquiry below. (Proposed business claims regarding confidentiality and intake procedures pending attorney review).
           </p>
         </div>
 
@@ -137,8 +136,8 @@ export default function ContactSection() {
                     className="text-[#4A4A4A] text-sm leading-relaxed mb-4"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
-                    Thank you for previewing the enquiry flow. In the completed production site, this message
-                    will be transmitted securely to <strong>{attorney.name}</strong> for preliminary review.
+                    Thank you for previewing the enquiry flow. This is a prototype demonstration only. 
+                    <strong> No message has been sent to {attorney.name}.</strong>
                   </p>
                   <p className="text-xs text-[#5A5753] bg-[#F8F5EE] p-3 rounded-[2px] border border-[#E8E4DC]">
                     <strong>Privacy Guarantee:</strong> Because this is an evaluation prototype, no information was logged,
@@ -319,7 +318,7 @@ export default function ContactSection() {
               <ul className="space-y-6">
                 <li>
                   <a
-                    href={`tel:${firm.phone.replace(/\D/g, "")}`}
+                    href={firm.phone === "Pending Setup" ? "#" : `tel:${firm.phone.replace(/\D/g, "")}`}
                     className="flex items-start gap-4 group text-sm text-[#B8C5D8] hover:text-[#B8996A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#B8996A]"
                   >
                     <div className="w-9 h-9 rounded-[2px] bg-[#1A3260] flex items-center justify-center text-[#B8996A] shrink-0 group-hover:bg-[#B8996A] group-hover:text-white transition-colors">
@@ -327,14 +326,14 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <span className="text-[10px] uppercase tracking-wider text-[#B8C5D8]/70 block mb-0.5">Telephone</span>
-                      <span className="text-white font-medium">{firm.phone}</span>
+                      <span className={`text-white ${firm.phone === "Pending Setup" ? "italic opacity-80 text-sm" : "font-medium"}`}>{firm.phone}</span>
                     </div>
                   </a>
                 </li>
 
                 <li>
                   <a
-                    href={`mailto:${firm.email}`}
+                    href={firm.email === "Email Pending Setup" ? "#" : `mailto:${firm.email}`}
                     className="flex items-start gap-4 group text-sm text-[#B8C5D8] hover:text-[#B8996A] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#B8996A]"
                   >
                     <div className="w-9 h-9 rounded-[2px] bg-[#1A3260] flex items-center justify-center text-[#B8996A] shrink-0 group-hover:bg-[#B8996A] group-hover:text-white transition-colors">
@@ -342,7 +341,7 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <span className="text-[10px] uppercase tracking-wider text-[#B8C5D8]/70 block mb-0.5">Direct Email</span>
-                      <span className="text-white font-medium">{firm.email}</span>
+                      <span className={`text-white ${firm.email === "Email Pending Setup" ? "italic opacity-80 text-sm" : "font-medium"}`}>{firm.email}</span>
                     </div>
                   </a>
                 </li>
@@ -354,8 +353,14 @@ export default function ContactSection() {
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-[#B8C5D8]/70 block mb-0.5">Office Location</span>
                     <address className="not-italic text-white leading-relaxed">
-                      {firm.location.street}<br />
-                      {firm.location.city}, {firm.location.state} {firm.location.zip}
+                      {firm.location.city === "Pending Confirmation" ? (
+                        <span className="italic opacity-80 text-sm">Location pending confirmation</span>
+                      ) : (
+                        <>
+                          {firm.location.street}<br />
+                          {firm.location.city}{firm.location.state ? `, ${firm.location.state}` : ""} {firm.location.zip}
+                        </>
+                      )}
                     </address>
                   </div>
                 </li>

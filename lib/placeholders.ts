@@ -21,17 +21,18 @@ export const firm = {
   shortName: "CCLAW",
   // [DRAFT] — Client to confirm preferred tagline before launch
   tagline: "Dedicated Legal Representation. A Clear Path Forward.",
-  phone: "(XXX) XXX-XXXX",
-  email: "contact@cclawfirm.com",
+  phone: "Pending Setup",
+  email: "Email Pending Setup",
   location: {
-    street: "[Street Address / Suite Placeholder]",
-    city: "[City]",
-    state: "[State]",
-    zip: "[ZIP]",
-    display: "[City], [State]",
+    street: "Office Location",
+    city: "Pending Confirmation",
+    state: "",
+    zip: "",
+    display: "Location Pending Confirmation",
   },
-  officeHours: "Monday – Friday, 9:00 AM – 5:00 PM (By Appointment)",
-  established: "[Year Established]",
+  // [DRAFT] — Pending client confirmation of operating hours
+  officeHours: "Monday – Friday, 9:00 AM – 5:00 PM (Proposed - Pending Approval)",
+  established: "Pending Verification",
   linkedIn: "https://www.linkedin.com/",
   logo: {
     // Wordmark used in navigation and footer until flat vector asset is supplied.
@@ -69,10 +70,10 @@ export const attorney = {
   credentialsNotice:
     "Formal credentials, bar admissions, academic honors, and professional memberships will be displayed here upon receipt of verified client information.",
   sampleCredentials: [
-    { label: "Juris Doctor (J.D.)", sub: "[Law School Name / Year pending verification]" },
-    { label: "Bar Admission", sub: "[State Bar Jurisdiction / Year pending verification]" },
-    { label: "Undergraduate Degree", sub: "[University / Degree pending verification]" },
-    { label: "Professional Affiliations", sub: "[Bar Association Memberships pending verification]" },
+    { label: "Juris Doctor (J.D.)", sub: "Pending Verification" },
+    { label: "Bar Admission", sub: "Pending Verification" },
+    { label: "Undergraduate Degree", sub: "Pending Verification" },
+    { label: "Professional Affiliations", sub: "Pending Verification" },
   ],
 };
 
@@ -149,8 +150,8 @@ export const firmPhilosophy = {
   headline: "A deliberate, client-centered approach to legal counsel.",
   principles: [
     {
-      title: "Direct Attorney Access",
-      body: "Clients communicate directly with counsel. Your questions are addressed personally by the attorney managing your matter, fostering clarity and accountability.",
+      title: "Direct Attorney Access [Proposed]",
+      body: "Clients communicate directly with counsel. Your questions are addressed personally by the attorney managing your matter, fostering clarity and accountability. (Pending client approval of business claims)",
     },
     {
       title: "Rigorous Factual Preparation",

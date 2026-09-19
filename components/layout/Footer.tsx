@@ -96,27 +96,33 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href={`tel:${firm.phone.replace(/\D/g, "")}`}
+                  href={firm.phone === "Pending Setup" ? "#" : `tel:${firm.phone.replace(/\D/g, "")}`}
                   className="flex items-center gap-3 text-[#B8C5D8] hover:text-[#B8996A] transition-colors group"
                 >
                   <Phone size={14} className="text-[#B8996A] shrink-0" aria-hidden="true" />
-                  <span>{firm.phone}</span>
+                  <span className={firm.phone === "Pending Setup" ? "italic opacity-80" : ""}>{firm.phone}</span>
                 </a>
               </li>
               <li>
                 <a
-                  href={`mailto:${firm.email}`}
+                  href={firm.email === "Email Pending Setup" ? "#" : `mailto:${firm.email}`}
                   className="flex items-center gap-3 text-[#B8C5D8] hover:text-[#B8996A] transition-colors group"
                 >
                   <Mail size={14} className="text-[#B8996A] shrink-0" aria-hidden="true" />
-                  <span>{firm.email}</span>
+                  <span className={firm.email === "Email Pending Setup" ? "italic opacity-80" : ""}>{firm.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-[#B8C5D8]">
                 <MapPin size={14} className="text-[#B8996A] shrink-0 mt-1" aria-hidden="true" />
                 <address className="not-italic leading-relaxed">
-                  {firm.location.street}<br />
-                  {firm.location.city}, {firm.location.state} {firm.location.zip}
+                  {firm.location.city === "Pending Confirmation" ? (
+                    <span className="italic opacity-80">Office location pending confirmation</span>
+                  ) : (
+                    <>
+                      {firm.location.street}<br />
+                      {firm.location.city}{firm.location.state ? `, ${firm.location.state}` : ""} {firm.location.zip}
+                    </>
+                  )}
                 </address>
               </li>
             </ul>

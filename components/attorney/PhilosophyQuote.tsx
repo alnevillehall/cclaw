@@ -7,6 +7,10 @@ export default function PhilosophyQuote() {
         <div className="max-w-[760px] mx-auto flex flex-col items-center text-center gap-8">
           {/* Brass rule top */}
           <div className="w-12 h-[2px] bg-[#B8996A]" aria-hidden="true" />
+          
+          <div className="inline-block border border-[#B8996A]/50 bg-[#B8996A]/10 text-[#B8996A] px-3 py-1 text-[10px] uppercase tracking-widest font-semibold rounded-[2px] mb-2">
+            Proposed Copy — Pending Review
+          </div>
 
           {/* Quote mark decoration */}
           <span

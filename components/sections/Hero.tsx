@@ -120,65 +120,35 @@ export default function Hero() {
               />
 
               {/* Dignified placeholder presentation container */}
-              <div className="relative bg-[#1A3260] border border-white/10 rounded-[2px] p-6 sm:p-10 flex flex-col justify-between aspect-[4/5] shadow-2xl">
-                {/* Visual architectural texture simulation */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <span
-                      className="text-[#B8996A] text-[10px] tracking-[0.2em] uppercase font-semibold"
-                      style={{ fontFamily: "var(--font-inter)" }}
-                    >
-                      Visual Specification
-                    </span>
-                    <span className="text-white/40 text-xs font-mono">01 / HERO</span>
-                  </div>
-
-                  <div className="pt-2">
+              <div className="relative bg-[#1A3260] border border-white/10 rounded-[2px] overflow-hidden flex flex-col justify-between aspect-[4/5] shadow-2xl">
+                {/* Architectural Pattern */}
+                <div className="absolute inset-0 opacity-[0.15]" aria-hidden="true">
+                  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="arch-lines" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#B8996A" strokeWidth="0.5" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#arch-lines)" />
+                  </svg>
+                </div>
+                
+                {/* Gradient Overlay for Depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1F3D] via-transparent to-transparent opacity-80" />
+                
+                {/* Clean, minimalist brand mark in the corner */}
+                <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-end">
+                  <div className="border-t border-[#B8996A]/30 pt-4">
                     <p
-                      className="text-white text-lg font-light"
+                      className="text-white text-xl font-light"
                       style={{ fontFamily: "var(--font-cormorant-garamond)" }}
                     >
                       {firm.name}
                     </p>
-                    <p className="text-[#B8C5D8] text-xs mt-1">
-                      {attorney.name} &bull; {attorney.title}
+                    <p className="text-[#B8C5D8] text-xs mt-1 uppercase tracking-widest font-medium">
+                      Est. {firm.established === "Pending Verification" ? new Date().getFullYear() : firm.established}
                     </p>
                   </div>
-                </div>
-
-                {/* Central placeholder graphic frame */}
-                <div className="my-auto py-6 sm:py-8 px-4 sm:px-6 bg-[#0F1F3D]/80 border border-white/10 rounded-[2px] flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-full border border-[#B8996A]/50 flex items-center justify-center mb-3">
-                    <svg
-                      width="22"
-                      height="22"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#B8996A"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
-                  </div>
-                  <p
-                    className="text-white text-sm font-medium tracking-wide mb-1"
-                    style={{ fontFamily: "var(--font-inter)" }}
-                  >
-                    Image Asset Placeholder
-                  </p>
-                  <p className="text-[#8A8680] text-xs leading-relaxed max-w-[260px]">
-                    {photography.heroArchitecturePlaceholder}
-                  </p>
-                </div>
-
-                {/* Status indicator footer */}
-                <div className="border-t border-white/10 pt-4 flex items-center justify-between text-[11px] text-[#B8C5D8]">
-                  <span>Status: Ready for Photography</span>
-                  <span className="text-[#B8996A]">&bull; Asset Pending</span>
                 </div>
               </div>
             </div>
