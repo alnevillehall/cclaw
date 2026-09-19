@@ -1,6 +1,7 @@
-import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import Image from "next/image";
 import Divider from "@/components/ui/Divider";
 import { attorney, firm, photography } from "@/lib/placeholders";
+import { ArrowRight } from "lucide-react";
 
 export default function AttorneySpotlight() {
   return (
@@ -16,11 +17,15 @@ export default function AttorneySpotlight() {
                 aria-hidden="true"
               />
               <div className="relative z-10 bg-white p-3 rounded-[2px] shadow-lg border border-[#D8D4CC]">
-                <PlaceholderImage
-                  label={photography.attorneyPortraitPlaceholder}
-                  aspectRatio="4/5"
-                  className="rounded-[2px]"
-                />
+                <div className="relative w-full rounded-[2px] overflow-hidden" style={{ aspectRatio: "4/5" }}>
+                  <Image
+                    src={photography.attorneyPhotoPath}
+                    alt={`${attorney.name}, ${attorney.title} at ${firm.name}`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 90vw, 35vw"
+                  />
+                </div>
                 <div className="mt-3 p-4 bg-[#F8F5EE] rounded-[2px] border border-[#E8E4DC]">
                   <p
                     className="text-[#0F1F3D] font-medium text-sm"
@@ -93,7 +98,8 @@ export default function AttorneySpotlight() {
                 className="inline-flex items-center gap-2 bg-[#0F1F3D] hover:bg-[#1A3260] text-white text-[12px] tracking-[0.09em] uppercase font-semibold px-7 sm:px-8 py-3.5 sm:py-4 rounded-[2px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B8996A]"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                <span>Request a Consultation with {attorney.name}</span>
+                <span>Schedule a Consultation</span>
+                <ArrowRight size={15} aria-hidden="true" />
               </a>
             </div>
           </div>

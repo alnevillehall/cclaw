@@ -63,7 +63,7 @@ export default function ContactSection() {
               className="text-[#7A5623] text-[11px] tracking-[0.25em] uppercase font-semibold"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Consultation Intake (Prototype)
+              Get in Touch
             </p>
           </div>
           <h2
@@ -76,13 +76,16 @@ export default function ContactSection() {
               lineHeight: 1.15,
             }}
           >
-            Contact Demonstration Form
+            Schedule a Consultation
           </h2>
           <p
             className="text-[#4A4A4A] text-[15px] sm:text-[16px] leading-relaxed"
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            Prospective clients may submit an initial consultation enquiry below. (Proposed business claims regarding confidentiality and intake procedures pending attorney review).
+            Submit a general enquiry and Attorney Walker will be in touch to discuss how the firm can assist you.
+          </p>
+          <p className="text-[11px] text-[#5A5753] mt-2 italic">
+            Prototype demonstration — enquiry details are not transmitted or stored.
           </p>
         </div>
 

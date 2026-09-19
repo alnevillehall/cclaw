@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Divider from "@/components/ui/Divider";
 import { firm, attorney, photography } from "@/lib/placeholders";
 import { ArrowRight, ArrowUpRight, ShieldCheck, Compass } from "lucide-react";
@@ -61,15 +62,22 @@ export default function Hero() {
               </span>
             </h1>
 
+            {/* Attorney name as identity anchor */}
+            <p
+              className="text-[#F0EDE6]/80 text-[13px] sm:text-[14px] tracking-[0.12em] uppercase font-semibold mb-4"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              {attorney.name} — {attorney.role}
+            </p>
+
             {/* [DRAFT — Pending client approval] */}
             <p
-              className="text-[#B8C5D8] max-w-[580px] mb-8 sm:mb-10 text-[15px] sm:text-[18px] leading-relaxed font-normal"
+              className="text-[#B8C5D8] max-w-[580px] mb-8 sm:mb-10 text-[15px] sm:text-[17px] leading-relaxed font-normal"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Personal injury, criminal defense, and immigration representation
-              tailored to your legal needs. Founded by {attorney.name} — direct
-              attorney access, rigorous preparation, and principled advocacy for
-              every client.
+              tailored to your legal needs — with direct attorney access and
+              principled advocacy for every client.
             </p>
 
             {/* Primary and secondary CTAs */}
@@ -92,7 +100,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Key trust markers - stacked on mobile, 2 cols on sm+ */}
+            {/* Key trust markers */}
             <div className="pt-6 border-t border-white/10 w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <div className="flex items-center gap-2.5 text-[#B8C5D8] text-xs">
                 <ShieldCheck size={16} className="text-[#B8996A] shrink-0" aria-hidden="true" />
@@ -105,11 +113,11 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Column 2: Visual composition & explicit placeholder representation */}
+          {/* Column 2: Attorney portrait */}
           <div className="lg:col-span-5 w-full">
-            <div className="relative mx-auto max-w-[460px] lg:max-w-none">
+            <div className="relative mx-auto max-w-[420px] lg:max-w-none">
               
-              {/* Decorative accent geometry (hidden on ultra-small mobile to eliminate edge jitter) */}
+              {/* Decorative accent geometry */}
               <div
                 className="hidden sm:block absolute -top-4 -left-4 w-full h-full border border-[#B8996A]/30 rounded-[2px] pointer-events-none"
                 aria-hidden="true"
@@ -119,36 +127,30 @@ export default function Hero() {
                 aria-hidden="true"
               />
 
-              {/* Dignified placeholder presentation container */}
-              <div className="relative bg-[#1A3260] border border-white/10 rounded-[2px] overflow-hidden flex flex-col justify-between aspect-[4/5] shadow-2xl">
-                {/* Architectural Pattern */}
-                <div className="absolute inset-0 opacity-[0.15]" aria-hidden="true">
-                  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <pattern id="arch-lines" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#B8996A" strokeWidth="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#arch-lines)" />
-                  </svg>
-                </div>
-                
-                {/* Gradient Overlay for Depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1F3D] via-transparent to-transparent opacity-80" />
-                
-                {/* Clean, minimalist brand mark in the corner */}
-                <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-end">
-                  <div className="border-t border-[#B8996A]/30 pt-4">
-                    <p
-                      className="text-white text-xl font-light"
-                      style={{ fontFamily: "var(--font-cormorant-garamond)" }}
-                    >
-                      {firm.name}
-                    </p>
-                    <p className="text-[#B8C5D8] text-xs mt-1 uppercase tracking-widest font-medium">
-                      Est. {firm.established === "Pending Verification" ? new Date().getFullYear() : firm.established}
-                    </p>
-                  </div>
+              {/* Attorney photo frame */}
+              <div className="relative overflow-hidden rounded-[2px] shadow-2xl aspect-[4/5]">
+                <Image
+                  src={photography.attorneyPhotoPath}
+                  alt={`${attorney.name}, ${attorney.role} — ${firm.name}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 90vw, 38vw"
+                  priority
+                />
+                {/* Name overlay at the bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0F1F3D]/90 via-[#0F1F3D]/40 to-transparent px-6 pt-12 pb-5">
+                  <p
+                    className="text-white text-lg font-light"
+                    style={{ fontFamily: "var(--font-cormorant-garamond)" }}
+                  >
+                    {attorney.name}
+                  </p>
+                  <p
+                    className="text-[#B8996A] text-[10px] uppercase tracking-widest font-semibold mt-0.5"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {attorney.title} — {firm.shortName}
+                  </p>
                 </div>
               </div>
             </div>

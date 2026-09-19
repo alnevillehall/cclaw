@@ -78,7 +78,10 @@ export const attorney = {
 };
 
 export const photography = {
-  attorneyPortraitPlaceholder: "Attorney Portrait — High-Resolution Asset Pending Client Delivery",
+  // Attorney headshot supplied by client. Original filename: media_1789833435146.png
+  // Cropped, professional shot on neutral background. Suitable for web use.
+  attorneyPhotoPath: "/images/attorney-walker.jpg",
+  attorneyPortraitPlaceholder: "Attorney Portrait — Chadayne Clive Lloyd Antonio Walker",
   heroArchitecturePlaceholder: "Dignified Legal Architecture — Interior/Exterior Asset Pending Client Selection",
   aboutOfficePlaceholder: "Law Office Environment — Asset Pending Client Delivery",
 };
@@ -150,8 +153,9 @@ export const firmPhilosophy = {
   headline: "A deliberate, client-centered approach to legal counsel.",
   principles: [
     {
-      title: "Direct Attorney Access [Proposed]",
-      body: "Clients communicate directly with counsel. Your questions are addressed personally by the attorney managing your matter, fostering clarity and accountability. (Pending client approval of business claims)",
+      // [PENDING ATTORNEY APPROVAL] — Do not publish without client confirmation.
+      title: "Direct Attorney Access",
+      body: "Clients communicate directly with counsel. Your questions are addressed personally by the attorney managing your matter, fostering clarity and accountability.",
     },
     {
       title: "Rigorous Factual Preparation",

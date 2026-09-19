@@ -1,7 +1,7 @@
-import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import Image from "next/image";
 import Divider from "@/components/ui/Divider";
 import { firm, attorney, photography } from "@/lib/placeholders";
-import { ArrowRight, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function FirmIntro() {
   return (
@@ -13,40 +13,39 @@ export default function FirmIntro() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
-          {/* Column 1: Attorney portrait / clearly identified placeholder */}
+          {/* Column 1: Attorney portrait */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative mx-auto max-w-[420px] lg:max-w-none">
               
-              {/* Decorative background block (responsive on sm+) */}
+              {/* Decorative background block */}
               <div
                 className="hidden sm:block absolute -top-5 -left-5 w-full h-full bg-[#0F1F3D] rounded-[2px] pointer-events-none"
                 aria-hidden="true"
               />
 
-              {/* Foreground portrait frame */}
+              {/* Photo frame */}
               <div className="relative z-10 bg-white p-3 rounded-[2px] shadow-xl border border-[#E8E4DC]">
-                <PlaceholderImage
-                  label={photography.attorneyPortraitPlaceholder}
-                  aspectRatio="4/5"
-                  className="rounded-[2px]"
-                />
-                <div className="p-4 bg-[#F8F5EE] mt-3 rounded-[2px] border border-[#E8E4DC] flex items-center justify-between">
-                  <div>
-                    <p
-                      className="text-[#0F1F3D] text-sm font-semibold"
-                      style={{ fontFamily: "var(--font-inter)" }}
-                    >
-                      {attorney.name}
-                    </p>
-                    <p className="text-[#5A5753] text-xs font-medium">{attorney.title}</p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-[#E8E4DC] flex items-center justify-center text-[#7A5623]">
-                    <User size={16} aria-hidden="true" />
-                  </div>
+                <div className="relative w-full rounded-[2px] overflow-hidden" style={{ aspectRatio: "4/5" }}>
+                  <Image
+                    src={photography.attorneyPhotoPath}
+                    alt={`${attorney.name}, ${attorney.role}`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 90vw, 35vw"
+                  />
+                </div>
+                <div className="p-4 bg-[#F8F5EE] mt-3 rounded-[2px] border border-[#E8E4DC]">
+                  <p
+                    className="text-[#0F1F3D] text-sm font-semibold"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {attorney.name}
+                  </p>
+                  <p className="text-[#5A5753] text-xs font-medium mt-0.5">{attorney.title}</p>
                 </div>
               </div>
 
-              {/* Brass corner accent (responsive on sm+) */}
+              {/* Brass corner accent */}
               <div
                 className="hidden sm:block absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-[#B8996A] pointer-events-none"
                 aria-hidden="true"
